@@ -1,0 +1,63 @@
+﻿@page
+@model WebApplication1.Pages.Account.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>AccountModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AccountModel.AccType" class="control-label"></label>
+                <select asp-for="AccountModel.AccType" class="form-control">
+                    <option value="Equity">Equity</option>
+                    <option value="Asset">Asset</option>
+                    <option value="Liability">Liability</option>
+                    <option value="Expense">Expense</option>
+                    <option value="Revenue">Revenue</option>
+                </select>
+                <span asp-validation-for="AccountModel.AccType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountModel.AccountBalance" class="control-label"></label>
+                <input asp-for="AccountModel.AccountBalance" class="form-control" />
+                <span asp-validation-for="AccountModel.AccountBalance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountModel.BalCrDr" class="control-label"></label>
+                <select asp-for="AccountModel.BalCrDr" class="form-control">
+                     <option value="Credit">CR</option>
+                     <option value="Debit">DR</option>
+                </select>
+                <span asp-validation-for="AccountModel.BalCrDr" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountModel.AccountHolder" class="control-label"></label>
+                <input asp-for="AccountModel.AccountHolder" class="form-control" />
+                <span asp-validation-for="AccountModel.AccountHolder" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountModel.NewestTransaction" class="control-label"></label>
+                <input asp-for="AccountModel.NewestTransaction" class="form-control" />
+                <span asp-validation-for="AccountModel.NewestTransaction" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
